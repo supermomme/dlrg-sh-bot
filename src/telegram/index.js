@@ -11,10 +11,10 @@ const middlewareHelpMessage = require('./middlewares/helpMessage.js');
 module.exports = function () {
   const app = this; // eslint-disable-line no-unused-vars
   app.telegraf = new Telegraf(app.get('bot-token'))
-
-  app.telegram.setWebhook(app.get('bot-webhook'))
+/*
+  app.telegraf.telegram.setWebhook(app.get('bot-webhook'))
   app.telegraf.startWebhook(app.get('bot-webhook'), null, 5000)
-  app.use(app.telegraf.webhookCallback(app.get('bot-webhook')))
+  app.use(app.telegraf.webhookCallback(app.get('bot-webhook')))*/
 
   app.configure(middlewareAuthentication)//always has to be first
   app.configure(webhook);
