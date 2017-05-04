@@ -1,0 +1,37 @@
+{
+  "host": "localhost",
+  "port": 3030,
+  "public": "../public/",
+  "paginate": {
+    "default": 10,
+    "max": 50
+  },
+  "authentication": {
+    "secret": "378ce7ad6dbea627819c416557e8ef307c68c315e652db6b98f93478d16558d72330e73b4f1554fe705659093e3a417a00ee53fa992fc78ba552c8695c72530566e0239dd8518fd9100239914f4cc1ba198722d8b331db18fc2cd6da9779334ddfc3db57cca79c5299cfff117c3c16822b40437d7c59ec13b1a7825c46390dd52bc9c4884f73fdd8e82a5ec78e57303f9e0c7069804ecac368c42846cd97079cebb5e74dd933a859482464313eba57363436bcbf460adccf46957e18140cec7db683db01f1f0567fad3aca8851ef7d5086d850acfb812b786ae59f791c93300e757fa5692a8a3aaeafec1310a366fd7c015ad837121e8865df10673226f08c15",
+    "strategies": [
+      "jwt",
+      "local"
+    ],
+    "path": "/authentication",
+    "service": "users",
+    "jwt": {
+      "header": {
+        "type": "access"
+      },
+      "audience": "https://yourdomain.com",
+      "subject": "anonymous",
+      "issuer": "feathers",
+      "algorithm": "HS256",
+      "expiresIn": "1d"
+    },
+    "local": {
+      "entity": "user",
+      "service": "users",
+      "usernameField": "email",
+      "passwordField": "password"
+    }
+  },
+  "mongodb": "mongodb://localhost:27017/dlrg_sh_bot",
+  "bot-token": "BOT_TOKEN",
+  "bot-webhook": "BOT_WEBHOOK"
+}

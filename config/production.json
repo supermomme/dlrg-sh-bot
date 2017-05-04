@@ -1,0 +1,5 @@
+{
+  "host": "dlrg-sh-bot-app.feathersjs.com",
+  "port": "PORT",
+  "mongodb": "MONGODB_URI"
+}
