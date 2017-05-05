@@ -33,5 +33,6 @@
   },
   "mongodb": "mongodb://localhost:27017/dlrg_sh_bot",
   "bot-token": "BOT_TOKEN",
-  "bot-webhook": "BOT_WEBHOOK"
+  "bot-webhook": "BOT_WEBHOOK",
+  "app-url": "APP_URL"
 }
