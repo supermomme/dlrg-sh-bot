@@ -21,5 +21,7 @@ module.exports = function () {
   app.configure(commandStatus);
   app.configure(commandBenachrichtigung);
   app.configure(middlewareHelpMessage)//always has to be last
-  //app.telegraf.startPolling();
+  if (!app.get('bot-webhook') || app.get('bot-webhook') == '') {
+    app.telegraf.startPolling();
+  }
 };
