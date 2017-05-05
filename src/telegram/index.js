@@ -12,16 +12,18 @@ module.exports = function () {
   const app = this; // eslint-disable-line no-unused-vars
   app.telegraf = new Telegraf(app.get('bot-token'))
 
-  app.telegraf.telegram.setWebhook(app.get('app-url')+app.get('bot-webhook'));
-  app.telegraf.startWebhook(app.get('bot-webhook'), null, 5000)
-  app.use(app.telegraf.webhookCallback(app.get('bot-webhook')))
+  if (!app.get('bot-webhook') || app.get('bot-webhook') == '') {
+    app.telegraf.startPolling();
+  } else {
+    app.telegraf.telegram.setWebhook(app.get('app-url')+app.get('bot-webhook'));
+    app.telegraf.startWebhook(app.get('bot-webhook'), null, 5000)
+    app.use(app.telegraf.webhookCallback(app.get('bot-webhook')))
+  }
 
   app.configure(middlewareAuthentication)//always has to be first
   app.configure(webhook);
   app.configure(commandStatus);
   app.configure(commandBenachrichtigung);
   app.configure(middlewareHelpMessage)//always has to be last
-  if (!app.get('bot-webhook') || app.get('bot-webhook') == '') {
-    app.telegraf.startPolling();
-  }
+
 };
